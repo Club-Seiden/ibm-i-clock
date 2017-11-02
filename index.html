@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<title>IBM i Countdown</title>
+<link rel="stylesheet" href="css/jquery.countdown.css">
+<style type="text/css">
+#ibmi-71-countdown { width: 720px; height: 120px; }
+</style>
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="js/jquery.plugin.min.js"></script>
+<script src="js/jquery.countdown.js"></script>
+<script src="js/moment.js"></script>
+<script>
+$(function () {
+    var death = moment("20180430T235959,999").utc().toDate();
+	$('#ibmi-71-countdown').countdown({until: death});
+});
+</script>
+</head>
+</head>
+<body>
+<h1>Support for IBM i 7.1 will end in....</h1>
+<div id="ibmi-71-countdown"></div>
+
+</body>
+</html>

@@ -9,8 +9,8 @@ var express = require('express');
 var app = express();
 app.use(express.static(__dirname));
 app.use("/js", express.static(__dirname+"/js"));
-app.use("/img", express.static('img'));
-app.use("/css", express.static('css'));
+app.use("/img", express.static(__dirname+"/img"));
+app.use("/css", express.static(__dirname+"/css"));
 
 // The IP address of the Cloud Foundry DEA (Droplet Execution Agent) that hosts this application:
 var host = (process.env.VCAP_APP_HOST || 'localhost');

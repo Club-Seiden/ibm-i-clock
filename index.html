@@ -1,46 +1,63 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-<title>IBM i Countdown</title>
-<link rel="stylesheet" href="css/jquery.countdown.css">
-<style type="text/css">
-#ibmi-71-countdown { width: 720px; height: 120px; }
-</style>
-<script src="js/jquery-3.2.1.min.js"></script>
-<script src="js/jquery.plugin.min.js"></script>
-<script src="js/jquery.countdown.js"></script>
-<script src="js/moment.js"></script>
-<script>
-$(function () {
-    var death = moment("20180430T235959,999").utc().toDate();
-	$('#ibmi-71-countdown').countdown({until: death});
-});
-</script>
-</head>
-</head>
-<body>
-<img src="img/death-2024663_640.png">
-<h1>Support for IBM i 7.1 will end in....</h1>
-<div id="ibmi-71-countdown"></div>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>IBM i Countdown</title>
+    <link rel="stylesheet" href="css/jquery.countdown.css">
+    <style type="text/css">
+      body {font-family: sans-serif;}
+      #ibmi-71-countdown { width: 720px; height: 120px; }
+      #themiddle {display: table;margin: 0 auto;}
+      #content {max-width: 64rem;padding: 2rem 6rem;margin: 0 auto;}
+    </style>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/jquery.plugin.min.js"></script>
+    <script src="js/jquery.countdown.js"></script>
+    <script src="js/moment.js"></script>
+    <script>
+    $(function () {
+        var death = moment("20180430T235959,999").utc().toDate();
+      $('#ibmi-71-countdown').countdown({until: death});
+    });
+    </script>
+  </head>
+  <body>
+    <div id="content">
+      <div id="themiddle">
+        <img src="img/death-2024663_640.png">
+        <h1>Support for IBM i 7.1 will end in....</h1>
+        <div id="ibmi-71-countdown"></div>
+      </div>
+    
+      <h3>But don't worry, you can still upgrade to IBM i 7.2 or better yet IBM i 7.3!</h3>
+      <p>Download a new, supported version of IBM i from the IBM ESS website: <a href="https://www-304.ibm.com/servers/eserver/ess/index.wss" rel="nofollow">https://www-304.ibm.com/servers/eserver/ess/index.wss</a></p>
+      <p>Check out what's new for IBM i 7.3 here: <a href="https://www.ibm.com/support/knowledgecenter/en/ssw_ibm_i_73/db2/rbafzwhatsnew.htm" rel="nofollow">https://www.ibm.com/support/knowledgecenter/en/ssw_ibm_i_73/db2/rbafzwhatsnew.htm</a></p>
+      <p>And don't forget to read the IBM i 7.3 Memo To Users here: <a href="https://www.ibm.com/support/knowledgecenter/ko/ssw_ibm_i_73/rzaq9/rzaq9.pdf" rel="nofollow">https://www.ibm.com/support/knowledgecenter/ko/ssw_ibm_i_73/rzaq9/rzaq9.pdf</a></p>
+      <p>See official 7.1 withdrawral announcement from IBM here: <a href="http://www-01.ibm.com/common/ssi/ShowDoc.wss?docURL=/common/ssi/rep_ca/6/877/ENUSZP17-0256/index.html&lang=en&request_locale=en%22">http://www-01.ibm.com/common/ssi/ShowDoc.wss?docURL=/common/ssi/rep_ca/6/877/ENUSZP17-0256/index.html&lang=en&request_locale=en%22</a></p>
+      
+      <h3>Reasons to upgrade from IBM i 7.1:</h3>
+      <ol>
+        <li>
+        <p>If you remain on IBM i 7.1, IBM Software Maintenance will cost much more with an added Extended Support charge after April 30th, 2018.</p>
+        </li>
+        <li>
+        <p>The IBM HTTP Server that shipped with IBM i 7.1 (Apache 2.2) will go out of support December 31st, 2017. This means that IBM i 7.1 will no longer be PCI compliant from a HTTP perspective. IBM HTTP Server has been upgraded to Apache 2.4 in IBM i releases 7.2 and 7.3.</p>
+        </li>
+        <li>
+        <p>The default Java version on IBM i 7.1 is version 6. This will be going end of support on December 31st, 2017 as well. It’s recommended you upgrade to Java 7 or 8 no matter what version of IBM i you have. There will be no more fix packs for Java 6.</p>
+        </li>
+        <li>
+        <p>75% of ciphers offered in IBM i 7.1 are not deemed secure. If securing your system is a priority to you, consider upgrading to IBM i 7.3, which offers far more secure cipher suites.</p>
+        </li>
+      </ol>
+      
+      <h3>Still not convinced?</h3>
+      <p>Read more on the 7.2 and 7.3 base enhancements!</p>
+      <ul>
+        <li>IBM i 7.2 - Base Enhancements: <a href="https://www.ibm.com/developerworks/community/wikis/home?lang=en#!/wiki/IBM%20i%20Technology%20Updates/page/IBM%20i%207.2%20-%20Base%20Enhancements">read here!</a></li>
+        <li>IBM i 7.3 - Base Enhancements: <a href="https://www.ibm.com/developerworks/community/wikis/home?lang=en#!/wiki/IBM%20i%20Technology%20Updates/page/IBM%20i%207.3%20-%20Base%20Enhancements">read here!</a></li>
+      </ul>
+    </div>
 
-<h3>But don't worry, you can still upgrade to IBM i 7.2 or better yet IBM i 7.3!</h3>
-<p>Download a new, supported version of IBM i from the IBM ESS website: <a href="https://www-304.ibm.com/servers/eserver/ess/index.wss" rel="nofollow">https://www-304.ibm.com/servers/eserver/ess/index.wss</a></p>
-<p>Check out what's new for IBM i 7.3 here: <a href="https://www.ibm.com/support/knowledgecenter/en/ssw_ibm_i_73/db2/rbafzwhatsnew.htm" rel="nofollow">https://www.ibm.com/support/knowledgecenter/en/ssw_ibm_i_73/db2/rbafzwhatsnew.htm</a></p>
-<p>And don't forget to read the IBM i 7.3 Memo To Users here: <a href="https://www.ibm.com/support/knowledgecenter/ko/ssw_ibm_i_73/rzaq9/rzaq9.pdf" rel="nofollow">https://www.ibm.com/support/knowledgecenter/ko/ssw_ibm_i_73/rzaq9/rzaq9.pdf</a></p>
-<h3>Reasons to upgrade from IBM i 7.1:</h3>
-<ol>
-<li>
-<p>If you remain on IBM i 7.1, IBM Software Maintenance will cost much more with an added Extended Support charge after April 30th, 2018.</p>
-</li>
-<li>
-<p>The IBM HTTP Server that shipped with IBM i 7.1 (Apache 2.2) will go out of support December 31st, 2017. This means that IBM i 7.1 will no longer be PCI compliant from a HTTP perspective. IBM HTTP Server has been upgraded to Apache 2.4 in IBM i releases 7.2 and 7.3.</p>
-</li>
-<li>
-<p>The default Java version on IBM i 7.1 is version 6. This will be going end of support on December 31st, 2017 as well. It’s recommended you upgrade to Java 7 or 8 no matter what version of IBM i you have. There will be no more fix packs for Java 6.</p>
-</li>
-<li>
-<p>75% of ciphers offered in IBM i 7.1 are not deemed secure. If securing your system is a priority to you, consider upgrading to IBM i 7.3, which offers far more secure cipher suites.</p>
-
-</body>
+  </body>
 </html>

@@ -28,7 +28,7 @@
               <img src="img/death-2024663_640.png">
             </div>
             <div class="col-md-10">
-              <h1>Support for IBM&nbsp;i v7.1 will end in...</h1>
+              <h1>IBM&nbsp;i v7.1 has been out of support for...</h1>
               <div class="flip-countdown-container">
                 <div id="ibmi-71-countdown"></div>
               </div>
@@ -170,9 +170,11 @@
           }));
         });
         // Starts the countdown
-        $example.countdown(death, function(event) {
+        $example.countdown(death, {elapse: true})
+        .on('update.countdown', function(event) {
           var newDate = event.strftime('%D:%H:%M:%S'),
             data;
+
           if (newDate !== nextDate) {
             currDate = nextDate;
             nextDate = newDate;

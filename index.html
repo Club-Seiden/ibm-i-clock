@@ -135,69 +135,74 @@
     </script>
     <script>
       $(function () {
-        var labels = ['days', 'hours', 'minutes', 'seconds'],
-          death = moment("20180430T235959,999").utc().toDate(),
-          template = _.template($('#flip-coundown-template').html()),
-          currDate = '000:00:00:00',
-          nextDate = '000:00:00:00',
-          $example = $('#ibmi-71-countdown');
-        // Parse countdown string to an object
-        function strfobj(str) {
-          var parsed = str.split(':'),
-            obj = {};
+        let counter = (id, eol) => {
+          let labels = ['days', 'hours', 'minutes', 'seconds'];
+          let death = moment(eol).utc().toDate();
+          let template = _.template($('#flip-coundown-template').html());
+          let currDate = '000:00:00:00';
+          let nextDate = '0000:00:00:00';
+          let $example = $(id);
+
+          // Parse countdown string to an object
+          function strfobj(str) {
+            var parsed = str.split(':'),
+              obj = {};
+            labels.forEach(function(label, i) {
+              obj[label] = parsed[i]
+            });
+            return obj;
+          }
+          // Return the time components that diffs
+          function diff(obj1, obj2) {
+            var diff = [];
+            labels.forEach(function(key) {
+              if (obj1[key] !== obj2[key]) {
+                diff.push(key);
+              }
+            });
+            return diff;
+          }
+          // Build the layout
+          var initData = strfobj(currDate);
           labels.forEach(function(label, i) {
-            obj[label] = parsed[i]
+            $example.append(template({
+              curr: initData[label],
+              next: initData[label],
+              label: label
+            }));
           });
-          return obj;
-        }
-        // Return the time components that diffs
-        function diff(obj1, obj2) {
-          var diff = [];
-          labels.forEach(function(key) {
-            if (obj1[key] !== obj2[key]) {
-              diff.push(key);
+          // Starts the countdown
+          $example.countdown(death, {elapse: true})
+          .on('update.countdown', function(event) {
+            var newDate = event.strftime('%D:%H:%M:%S'),
+              data;
+
+            if (newDate !== nextDate) {
+              currDate = nextDate;
+              nextDate = newDate;
+              // Setup the data
+              data = {
+                'curr': strfobj(currDate),
+                'next': strfobj(nextDate)
+              };
+              // Apply the new values to each node that changed
+              diff(data.curr, data.next).forEach(function(label) {
+                var selector = '.%s'.replace(/%s/, label),
+                    $node = $example.find(selector);
+                // Update the node
+                $node.removeClass('flip');
+                $node.find('.curr').text(data.curr[label]);
+                $node.find('.next').text(data.next[label]);
+                // Wait for a repaint to then flip
+                _.delay(function($node) {
+                  $node.addClass('flip');
+                }, 50, $node);
+              });
             }
           });
-          return diff;
-        }
-        // Build the layout
-        var initData = strfobj(currDate);
-        labels.forEach(function(label, i) {
-          $example.append(template({
-            curr: initData[label],
-            next: initData[label],
-            label: label
-          }));
-        });
-        // Starts the countdown
-        $example.countdown(death, {elapse: true})
-        .on('update.countdown', function(event) {
-          var newDate = event.strftime('%D:%H:%M:%S'),
-            data;
+        };
 
-          if (newDate !== nextDate) {
-            currDate = nextDate;
-            nextDate = newDate;
-            // Setup the data
-            data = {
-              'curr': strfobj(currDate),
-              'next': strfobj(nextDate)
-            };
-            // Apply the new values to each node that changed
-            diff(data.curr, data.next).forEach(function(label) {
-              var selector = '.%s'.replace(/%s/, label),
-                  $node = $example.find(selector);
-              // Update the node
-              $node.removeClass('flip');
-              $node.find('.curr').text(data.curr[label]);
-              $node.find('.next').text(data.next[label]);
-              // Wait for a repaint to then flip
-              _.delay(function($node) {
-                $node.addClass('flip');
-              }, 50, $node);
-            });
-          }
-        });
+        counter('#ibmi-71-countdown', '20180430T235959,999');
 
         // Make URL update on tab switch
         $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {

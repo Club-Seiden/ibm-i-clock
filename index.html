@@ -28,7 +28,11 @@
               <img src="img/death-2024663_640.png">
             </div>
             <div class="col-md-10">
-              <h1>IBM&nbsp;i v7.1 has been out of support for...</h1>
+              <h1>Support for IBM&nbsp;i 7.2 will end in...</h1>
+              <div class="flip-countdown-container">
+                <div id="ibmi-72-countdown"></div>
+              </div>
+              <h1>IBM&nbsp;i 7.1 has been out of support for...</h1>
               <div class="flip-countdown-container">
                 <div id="ibmi-71-countdown"></div>
               </div>
@@ -51,33 +55,47 @@
         </ul>
         <div class="tab-content" id="TabsContent">
           <div class="tab-pane fade show active" id="WhatToDo" role="tabpanel" aria-labelledby="WhatToDoTab">
-            <h3>Don't worry, you can still upgrade to IBM&nbsp;i 7.2 or better yet IBM&nbsp;i 7.3!</h3>
+            <h3>Don't worry, you can still upgrade to IBM&nbsp;i 7.3 or better yet IBM&nbsp;i 7.4!</h3>
             <ul>
               <li>
                 Download a new, supported version of IBM&nbsp;i from the
                 <a href="https://www-304.ibm.com/servers/eserver/ess/index.wss" rel="nofollow">IBM ESS website</a>.
               </li>
               <li>
-                Check out what's new for IBM&nbsp;i 7.3
-                <a href="https://www.ibm.com/support/knowledgecenter/en/ssw_ibm_i_73/db2/rbafzwhatsnew.htm" rel="nofollow">here</a>.
+                Check out what's new for IBM&nbsp;i 7.4
+                <a href="https://www.ibm.com/support/knowledgecenter/en/ssw_ibm_i_74/db2/rbafzwhatsnew.htm" rel="nofollow">here</a> and read the
+                IBM&nbsp;i 7.4 <a href="https://www.ibm.com/support/knowledgecenter/ko/ssw_ibm_i_74/rzaq9/rzaq9.pdf" rel="nofollow">Memo To Users</a>.
               </li>
               <li>
-                Read the
-                <a href="https://www.ibm.com/support/knowledgecenter/ko/ssw_ibm_i_73/rzaq9/rzaq9.pdf" rel="nofollow">IBM&nbsp;i 7.3 Memo To Users</a>.
+                Check out what's new for IBM&nbsp;i 7.3
+                <a href="https://www.ibm.com/support/knowledgecenter/en/ssw_ibm_i_73/db2/rbafzwhatsnew.htm" rel="nofollow">here</a> and read the
+                IBM&nbsp;i 7.3 <a href="https://www.ibm.com/support/knowledgecenter/ko/ssw_ibm_i_73/rzaq9/rzaq9.pdf" rel="nofollow">Memo To Users</a>.
               </li>
               <li>
                 Read the official
-                <a href="http://www-01.ibm.com/common/ssi/ShowDoc.wss?docURL=/common/ssi/rep_ca/6/877/ENUSZP17-0256/index.html&lang=en&request_locale=en%22">7.1 withdrawal announcement</a>
+                <a href="https://www-01.ibm.com/common/ssi/cgi-bin/ssialias?infotype=an&subtype=ca&supplier=897&letternum=ENUS919-147">7.2 withdrawal announcement</a>
+                from IBM.
+              </li>
+              <li>
+                Read the official
+                <a href="https://www-01.ibm.com/common/ssi/cgi-bin/ssialias?infotype=an&subtype=ca&supplier=877&letternum=ENUSZP17-0256">7.1 withdrawal announcement</a>
                 from IBM.
               </li>
             </ul>
           </div>
           <div class="tab-pane fade" id="Reasons" role="tabpanel" aria-labelledby="ReasonsTab">
+            <h3>Reasons to upgrade from IBM&nbsp;i 7.2</h3>
+            <ol>
+              <li>
+                If you remain on IBM&nbsp;i 7.2, IBM Software Maintenance will cost much more with an added Extended Support
+                charge after April 30th, 2021.
+              </li>
+            </ol>
             <h3>Reasons to upgrade from IBM&nbsp;i 7.1</h3>
             <ol>
               <li>
-                If you remain on IBM&nbsp;i 7.1, IBM Software Maintenance will cost much more with an added Extended Support
-                charge after April 30th, 2018.
+                Remaining on IBM&nbsp;i 7.1, IBM Software Maintenance costs much more with an added Extended Support
+                charge.
               </li>
               <li>
                 The IBM HTTP Server that shipped with IBM&nbsp;i 7.1 (Apache 2.2) <b>has gone out of support</b> as of December 31st, 2017.
@@ -97,10 +115,10 @@
           </div>
           <div class="tab-pane fade" id="MoreReasons" role="tabpanel" aria-labelledby="MoreReaonsTab">
             <h3>Still not convinced?</h3>
-            <p>Read more on the 7.2 and 7.3 Base Enhancements!</p>
+            <p>Read more on the 7.4 and 7.3 Base Enhancements!</p>
             <ul>
-              <li><a href="https://www.ibm.com/developerworks/community/wikis/home?lang=en#!/wiki/IBM%20i%20Technology%20Updates/page/IBM%20i%207.2%20-%20Base%20Enhancements">IBM&nbsp;i 7.2 Base Enhancments</a></li>
-              <li><a href="https://www.ibm.com/developerworks/community/wikis/home?lang=en#!/wiki/IBM%20i%20Technology%20Updates/page/IBM%20i%207.3%20-%20Base%20Enhancements">IBM&nbsp;i 7.3 Base Enhancements</a></li>
+              <li><a href="https://www.ibm.com/support/pages/node/1164634">IBM&nbsp;i 7.4 Base Enhancements</a></li>
+              <li><a href="https://www.ibm.com/support/pages/node/1169032">IBM&nbsp;i 7.3 Base Enhancements</a></li>
             </ul>
           </div>
         </div>
@@ -202,6 +220,7 @@
           });
         };
 
+        counter('#ibmi-72-countdown', '20210430T235959,999');
         counter('#ibmi-71-countdown', '20180430T235959,999');
 
         // Make URL update on tab switch

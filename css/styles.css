@@ -46,6 +46,11 @@ img {
   -o-transform: translate3d(0,0,0);
   transform: translate3d(0,0,0);
 }
+
+.jumbotron .time.days {
+  width: 90px;
+}
+
 .jumbotron .count {
   background: #202020;
   color: #f8f8f8;
